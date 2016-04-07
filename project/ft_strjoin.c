@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/26 09:54:19 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/07 15:11:00 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int ft_printf(char *fmt, ...)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	va_list	ap;
-	size_t	len;
+	char	*str;
+	size_t	len1;
+	size_t	len2;
 
-	va_start(ap, fmt);
-	while (*fmt != '\0')
-	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
-		if (*fmt)
-		{
-				
-			fmt++;
-		}
-	}
-	va_end(ap);
-	return (1);
+	if (!s1 && !s2)
+		return (NULL);
+	if (s1 == NULL)
+		len1 = 0;
+	else
+		len1 = ft_strchrlen(s1, '\0');
+	if (s2 == NULL)
+		len2 = 0;
+	else
+		len2 = ft_strchrlen(s2, '\0');
+	if ((str = ft_strnew(len1 + len2 + 1)) == NULL)
+		return (NULL);
+	(len1 == 0) ? str : ft_strcpy(str, s1);
+	(len2 == 0) ? str : ft_strcpy((str + len1), s2);
+	return (str);
 }

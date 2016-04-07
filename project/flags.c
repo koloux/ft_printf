@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/07 10:18:27 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/07 15:13:33 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int ft_printf(char *fmt, ...)
+void	flags_get(char **str, char *opt)
 {
-	va_list	ap;
-	size_t	len;
+	char	c;
 
-	va_start(ap, fmt);
-	while (*fmt != '\0')
+	(*str)++;
+	if (*(*str) == ' ' || *(*str) == '0' || *(*str) == '#' || *(*str) == '\''
+			|| *(*str) == '-' || *(*str) == '+')
 	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
-		if (*fmt)
+		c = *(*str);
+		if (ft_strchr(opt, c) == NULL)
 		{
-				
-			fmt++;
+			if (!(ft_strjoin(opt, &c)))
+				return ;
 		}
+		return (flags_get(str, opt));
 	}
-	va_end(ap);
-	return (1);
+	else
+		return ;
 }

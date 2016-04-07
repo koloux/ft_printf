@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/07 17:41:53 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int ft_printf(char *fmt, ...)
+int	main(void)
 {
-	va_list	ap;
-	size_t	len;
+	char	*str = "toi !\n";
+	char	*str2 = "la pute";
+	char	c = 'A';
+	int	nb = 42;
+	ft_printf("%c %d\nSlt %s\nTa mere %s", c, nb, str, str2);
 
-	va_start(ap, fmt);
-	while (*fmt != '\0')
-	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
-		if (*fmt)
-		{
-				
-			fmt++;
-		}
-	}
-	va_end(ap);
-	return (1);
+	return (0);
 }

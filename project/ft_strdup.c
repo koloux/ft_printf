@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/22 16:53:59 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/07 14:49:21 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int ft_printf(char *fmt, ...)
+char	*ft_strdup(const char *s1)
 {
-	va_list	ap;
-	size_t	len;
+	char	*s2;
+	int		i;
 
-	va_start(ap, fmt);
-	while (*fmt != '\0')
+	if (!(s2 = (char *)malloc(sizeof(char) * (ft_strchrlen(s1, '\0') + 1))))
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
-		if (*fmt)
-		{
-				
-			fmt++;
-		}
+		s2[i] = s1[i];
+		i++;
 	}
-	va_end(ap);
-	return (1);
+	s2[i] = '\0';
+	return (s2);
 }

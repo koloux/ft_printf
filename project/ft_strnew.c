@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/25 15:18:22 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/07 14:51:37 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int ft_printf(char *fmt, ...)
+char	*ft_strnew(size_t size)
 {
-	va_list	ap;
-	size_t	len;
+	char			*str;
+	unsigned int	i;
 
-	va_start(ap, fmt);
-	while (*fmt != '\0')
-	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
-		if (*fmt)
-		{
-				
-			fmt++;
-		}
-	}
-	va_end(ap);
-	return (1);
+	i = 0;
+	if (!(str = (char *)ft_memalloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	while (i < size)
+		str[i++] = '\0';
+	str[i] = '\0';
+	return (str);
 }

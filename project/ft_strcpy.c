@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/22 17:08:49 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/07 15:07:42 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int ft_printf(char *fmt, ...)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	va_list	ap;
-	size_t	len;
+	size_t	i;
 
-	va_start(ap, fmt);
-	while (*fmt != '\0')
+	i = 0;
+	while (src[i] != '\0')
 	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
-		if (*fmt)
-		{
-				
-			fmt++;
-		}
+		dst[i] = src[i];
+		i++;
 	}
-	va_end(ap);
-	return (1);
+	dst[i] = '\0';
+	return (dst);
 }

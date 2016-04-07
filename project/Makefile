@@ -6,7 +6,7 @@
 #*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/03/07 09:32:29 by nhuber            #+#    #+#             *#
-#*   Updated: 2016/04/05 17:25:03 by nhuber           ###   ########.fr       *#
+#*   Updated: 2016/04/07 17:41:23 by nhuber           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -14,8 +14,13 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 AR = ar rc
 NAME = libftprintf.a
-LIB = ./libft/libft.a
-FILES = ft_printf.c 
+HEADER = libftprintf.h
+FILES = ft_printf.c spec.c flags.c \
+	ft_memalloc.c ft_memdel.c ft_bzero.c\
+	ft_strnew.c ft_strchrlen.c ft_strindexof.c ft_strchr.c ft_strdup.c \
+	ft_strjoin.c ft_strcpy.c\
+	ft_putchar.c ft_putnbr.c ft_putstr.c \
+	
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~  $(F_DIR)/header.h~ $(NAME)~ $(FILES:.c=.c~)
 
@@ -25,7 +30,7 @@ $(NAME) :
 	@echo Project : $(NAME)
 	@echo "\t"- Compiler : $(CC)
 	@echo "\t"- Flags : $(FLAGS)
-	@$(CC) $(FLAGS) -c $(FILES) -I $(LIB)
+	@$(CC) $(FLAGS) -c $(FILES) 
 	@$(AR) $(NAME) $(OBJ)
 
 clean :
@@ -35,5 +40,10 @@ clean :
 fclean : clean
 	@echo fclean :"\n\tExec file deleted"
 	@rm -f $(NAME)
+
+test :
+	@echo "\t\tTESTING\n-----------------------------"
+	@$(CC) $(FLAGS) -o ze_printf $(FILES) main.c -I $(HEADER)
+	@./ze_printf
 
 re : fclean all
