@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 16:32:01 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/07 18:32:13 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+#include <stdio.h>
+
 /*
  * printf functions
  */
 
 int	ft_printf(char *fmt, ...);
-void	spec_get(char **str, char *opt);
-void	flags_get(char **str, char *opt);
+void	spec_get(char **str, char **opt);
+void	flags_get(char **str, char **opt);
 
 /*
  * library functions

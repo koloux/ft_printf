@@ -6,15 +6,16 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 13:19:21 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 16:30:30 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/07 18:34:19 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	spec_get(char **str, char *opt)
+void	spec_get(char **str, char **opt)
 {
 	(*str)++;
+	printf("getting s: %c\n", *(*str));
 	if (*(*str) == 's' || *(*str) == 'c' || *(*str) == 'd' || *(*str) == 'i')
-		*opt = *(*str);
+		**opt = *(*str);
 }

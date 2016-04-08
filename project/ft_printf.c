@@ -6,18 +6,21 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 17:34:50 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/08 13:22:48 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 int ft_printf(char *fmt, ...)
 {
 	va_list	ap;
+	char	**opt;
 	size_t	len;
 
+	if (!(opt = (char **)ft_memalloc(sizeof(char *) * 6)))
+		return (-1);
+	opt[5] = NULL;
 	va_start(ap, fmt);
 	while (*fmt != '\0')
 	{
@@ -26,7 +29,11 @@ int ft_printf(char *fmt, ...)
 		fmt += len;
 		if (*fmt)
 		{
-				
+			flags_get(&fmt, &(opt[0]));
+			printf("FMT :%c\n", *fmt);
+			spec_get(&fmt, &(opt[1]));
+			printf("\nFLAGS : %s\nSPEC : %s\n", opt[0], opt[1]);
+			//ptr on func
 			fmt++;
 		}
 	}
