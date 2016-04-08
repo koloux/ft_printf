@@ -6,19 +6,19 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 13:19:21 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/08 14:56:53 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/08 15:46:26 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	spec_get(char **str, char **opt)
+void	spec_get(char **fmt, char **opt)
 {
 	char	*cpy;
-	if (*(*str) == 's' || *(*str) == 'c' || *(*str) == 'd' || *(*str) == 'i')
+	if (*(*fmt) == 's' || *(*fmt) == 'c' || *(*fmt) == 'd' || *(*fmt) == 'i')
 	{
 		cpy = ft_strnew(1);
-		cpy[0] = *(*str);
+		cpy[0] = *(*fmt);
 		*opt = cpy;
 	}
 }

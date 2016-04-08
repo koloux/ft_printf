@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/08 14:35:15 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/08 15:44:55 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 /*
  * printf functions
  */
-int	ft_printf(char *fmt, ...);
-void	spec_get(char **str, char **opt);
-void	flags_get(char **str, char **opt);
+int		ft_printf(char *fmt, ...);
+void	spec_get(char **fmt, char **opt);
+void	flags_get(char **fmt, char **opt);
+int		error_percent(char *fmt);
 /*
  * library functions
  */

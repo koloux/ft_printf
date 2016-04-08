@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nhuber <nhuber@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/08 16:04:53 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/08 15:29:56 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/08 16:01:48 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	main(void)
+int		error_percent(char *fmt)
 {
-	char	*str = "toi !\n";
-	char	*str2 = "la pute";
-	char	c = 'A';
-	int	nb = 42;
-	ft_printf("%0c %d\nSlt %s\nTa mere %s", c, nb, str, str2);
+	int		flag;
+	char	*spec;
+	int		i;
 
-	printf("\ntesting error_percent\n");
-	printf("error : %% ");
-	return (0);
+	flag = 0;
+	spec = "sSpdDioOuUxXcC";
+	while (*fmt && flag == 0)
+	{
+		i = 0;
+		while (spec[i])
+		{
+			if (*fmt == spec[i++])
+				flag++;
+		}
+		fmt++;
+	}
+	return (flag);
 }
