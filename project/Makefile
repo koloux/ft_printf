@@ -15,7 +15,7 @@ FLAGS = -Wall -Wextra -Werror
 AR = ar rc
 NAME = libftprintf.a
 HEADER = libftprintf.h
-FILES = ft_printf.c spec.c flags.c width.c precision.c error.c\
+FILES = ft_printf.c spec.c flags.c width.c precision.c length.c error.c\
 	ft_memalloc.c ft_memdel.c ft_bzero.c \
 	ft_strnew.c ft_strchrlen.c ft_strindexof.c ft_strchr.c ft_strdup.c \
 	ft_strjoin.c ft_strcpy.c ft_strcmp.c ft_strsub.c \

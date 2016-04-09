@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 13:19:21 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/09 14:23:46 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/09 18:53:49 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	spec_get(char **fmt, char **opt)
 {
 	char	*cpy;
+
 	if (*(*fmt) == 's' || *(*fmt) == 'c' || *(*fmt) == 'd' || *(*fmt) == 'i')
 	{
 		cpy = ft_strnew(1);
