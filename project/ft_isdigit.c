@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/09 16:01:46 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/24 13:38:45 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/09 14:04:00 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	main(void)
+int	ft_isdigit(int c)
 {
-	char	*str = "toi !\n";
-	char	*str2 = "la pute";
-	char	c = 'A';
-	int	nb = 42;
-	ft_printf("%+0-0+0-0123c\n%.4d\nSlt %.3s\nTa mere %s\n", c, nb, str, str2);
-
-
-//	char *format = ".a13u37";
-//	char *option = NULL;
+	if (c <= '9' && c >= '0')
+		return (1);
 	return (0);
 }

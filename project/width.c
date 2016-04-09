@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   width.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/09 16:01:46 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/09 11:52:07 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/09 15:44:00 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	main(void)
+void	width_get(char **fmt, char **opt)
 {
-	char	*str = "toi !\n";
-	char	*str2 = "la pute";
-	char	c = 'A';
-	int	nb = 42;
-	ft_printf("%+0-0+0-0123c\n%.4d\nSlt %.3s\nTa mere %s\n", c, nb, str, str2);
+	size_t	i;
+	size_t	n;
 
-
-//	char *format = ".a13u37";
-//	char *option = NULL;
-	return (0);
+	i = 0;
+	ft_memdel((void*)&(*opt));
+	while (ft_isdigit((fmt[0][i])))
+		i++;
+	if (i > 0)
+	{
+		*opt = ft_strsub(*(fmt), 0, i);
+		n = 0;
+		while (n++ < i)
+			(*fmt)++;
+	}
 }

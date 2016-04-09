@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/08 16:06:23 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/09 15:40:17 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,22 @@ int ft_printf(char *fmt, ...)
 			}
 			else
 			{
-				if (error_percent(fmt) != 0)
+				if (error_convert(fmt) != 0)
 				{
-					printf("-||TEST||%s|-", fmt);
+					fmt++;
 					flags_get(&fmt, &(opt[0]));
-					spec_get(&fmt, &(opt[1]));
-					if (opt[1][0] == 115)
+					printf("FLAGS expunged : %s\n", opt[0]);
+					width_get(&fmt, &(opt[1]));
+					printf("WIDTH calculated : %s\n", opt[1]);
+					precision_get(&fmt, &(opt[2]));
+					printf("PRECISION required : %s\n", opt[2]);
+					spec_get(&fmt, &(opt[3]));
+					printf("ALL OPTIONS : %s%s%s%s\n", opt[0], opt[1], opt[2], opt[3]);
+					if (opt[3][0] == 115)
 						ft_putstr(va_arg(ap, char *));
-					if (opt[1][0] == 99)
+					if (opt[3][0] == 99)
 						ft_putchar(va_arg(ap, int));	
-					if (opt[1][0] == 105 || opt[1][0] == 100)
+					if (opt[3][0] == 105 || opt[3][0] == 100)
 						ft_putnbr(va_arg(ap, int));
 					//ptr on func
 				}
