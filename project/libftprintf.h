@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/11 13:13:03 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/11 16:10:14 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <wchar.h>
+# include <locale.h>
 
 #include <stdio.h>
 /*
@@ -43,13 +44,19 @@ size_t	ft_strchrlen(const char	*str, int c);
 int		ft_strindexof(const char *str, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 
-void	*ft_memalloc(size_t size);
-void	ft_memdel(void **ap);
-void	ft_bzero(void *s, size_t n);
+void	ft_putwchar(wchar_t wc);
+size_t	ft_wstrlen(wchar_t *ws);
 
 void	ft_putchar(char c);
 void	ft_putstr(char const *str);
 void	ft_putnbr(int n);
+
+void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
+void	ft_bzero(void *s, size_t n);
+
+int		ft_bitgetoctal(int i, unsigned int index);
+int		ft_bitgetfour(int i, unsigned int index);
 
 int		ft_isdigit(int c);
 int		ft_isupper(int c);
