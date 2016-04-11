@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/10 17:22:55 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/11 13:13:03 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	ft_putstr(char const *str);
 void	ft_putnbr(int n);
 
 int		ft_isdigit(int c);
-
+int		ft_isupper(int c);
 # endif
