@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/11 16:56:24 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/11 19:10:34 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 		ft_putwchar(wc);
 		printf("\n%C\n", wc);
 		printf("------2------\n");
-		wc = 101;
+		wc = 255;
 		ft_putwchar(wc);
 		printf("\n%C\n", wc);
 	}

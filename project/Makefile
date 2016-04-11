@@ -22,7 +22,7 @@ FILES = ft_printf.c spec.c flags.c width.c precision.c length.c error.c\
 	ft_putwchar.c ft_wstrlen.c \
 	ft_putchar.c ft_putnbr.c ft_putstr.c \
 	ft_bitgetfour.c ft_bitgetoctal.c \
-	ft_isdigit.c ft_isupper.c \
+	ft_isdigit.c ft_isupper.c ft_power.c \
 	
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~  $(F_DIR)/header.h~ $(NAME)~ $(FILES:.c=.c~)

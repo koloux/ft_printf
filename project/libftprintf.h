@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/11 16:10:14 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/11 19:10:29 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ int		ft_bitgetfour(int i, unsigned int index);
 
 int		ft_isdigit(int c);
 int		ft_isupper(int c);
+int		ft_power(int n, int pow);
 # endif
