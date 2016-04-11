@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/11 19:10:29 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/11 19:41:26 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_strindexof(const char *str, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 
 void	ft_putwchar(wchar_t wc);
-size_t	ft_wstrlen(wchar_t *ws);
+void	ft_putwstr(wchar_t *ws);
 
 void	ft_putchar(char c);
 void	ft_putstr(char const *str);
