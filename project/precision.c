@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/09 14:34:09 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/09 15:50:10 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/13 11:56:34 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ void	precision_get(char **fmt, char **opt)
 		while (n++ < i)
 			(*fmt)++;
 	}
+}
+
+int		precision_error(char **opt)
+{
+	//verify global total
+	//total + precision must be lower than max_int
+
+	(void)opt;
+	return (1);
 }

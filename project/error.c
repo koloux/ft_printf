@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 15:29:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/09 09:27:55 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/13 11:34:42 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,21 @@ int		error_convert(char *fmt)
 		fmt++;
 	}
 	return (flag);
+}
+
+int		error_tags(char **opt)
+{
+	int	(*tag[2])(char **);
+	int i;
+
+	tag[0] = &flags_error;
+	tag[1] = &length_error;
+	i = 0;
+	while (i < 2)
+	{
+		if (tag[i](opt) == -1)
+			return (-1);
+		i++;
+	}
+	return (0);
 }
