@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 11:42:06 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/13 17:39:37 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,15 @@ int ft_printf(char *fmt, ...)
 				{
 					fmt++;
 					flags_get(&fmt, &(opt[0]));
-					//printf("FLAGS expunged : %s\n", opt[0]);
 					width_get(&fmt, &(opt[1]));
-					//printf("WIDTH calculated : %s\n", opt[1]);
 					precision_get(&fmt, &(opt[2]));
-					//printf("PRECISION required : %s\n", opt[2]);
 					length_get(&fmt, &(opt[3]));
 					spec_get(&fmt, &(opt[4]));
-					printf("ALL OPTIONS : |%s|%s|%s|%s|%s|\n", opt[0], opt[1], opt[2], opt[3], opt[4]);
+					//printf("ALL OPTIONS : |%s|%s|%s|%s|%s|\n", opt[0], opt[1], opt[2], opt[3], opt[4]);
 					if (error_tags(opt) != -1)
 					{
 						//ptr func
-						if (opt[4][0] == 115)
-							ft_putstr(va_arg(ap, char *));
-						if (opt[4][0] == 99)
-							ft_putchar(va_arg(ap, int));	
-						if (opt[4][0] == 105 || opt[4][0] == 100)
-							ft_putnbr(va_arg(ap, int));
+						convert(ap, opt);					
 					}
 					else
 					{

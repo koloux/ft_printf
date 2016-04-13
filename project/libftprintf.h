@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 11:21:30 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/13 16:52:31 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	flags_get(char **fmt, char **opt);
 void	width_get(char **fmt, char **opt);
 void	precision_get(char **fmt, char **opt);
 void	length_get(char **fmt, char **opt);
+
+void	convert(va_list ap, char **opt);
+long long int	convert_int(va_list ap, char **opt);
+long long int	convert_uint(va_list ap, char **opt);
+void	convert_char(va_list ap, char **opt);
 
 int		error_convert(char *fmt);
 int		error_tags(char **opt);
