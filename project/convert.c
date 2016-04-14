@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 14:43:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 17:39:34 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/14 14:31:16 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void			convert(va_list ap, char **opt)
 {
-	long long int	ret;
-
-	if (opt[4][0] == 'd' || opt[4][0] == 'i' || opt[4][0] == 'D')
-		ret = convert_int(ap, opt);			
+	if (opt[4][0] == 'd' || opt[4][0] == 'i' || opt[4][0] == 'D')	
+		printnbr(opt, convert_int(ap, opt));
 	else if (opt[4][0] == 'o' || opt[4][0] == 'u' || opt[4][0] == 'x' ||
 			opt[4][0] == 'O' || opt[4][0] == 'U' || opt[4][0] == 'X')	
-		ret = convert_int(ap, opt);
+		printnbr(opt, convert_uint(ap, opt));
 	else
 		convert_char(ap, opt);
+	//send ret to appropriate conversion
 }
 
 void	convert_char(va_list ap, char **opt)
@@ -33,10 +32,8 @@ void	convert_char(va_list ap, char **opt)
 		ft_putwstr(va_arg(ap, wchar_t *));
 	else if (opt[4][0] == 'c')
 		ft_putchar(va_arg(ap, int));
-	else if (opt[4][0] == 's')
-		ft_putstr(va_arg(ap, char *));
 	else
-		printf("123");
+		ft_putstr(va_arg(ap, char *));
 }
 
 long long int	convert_int(va_list ap, char **opt)

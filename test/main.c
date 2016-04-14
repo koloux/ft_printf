@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 11:55:48 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/08 13:22:45 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/14 14:43:47 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ void	foo(char *fmt, ...)
 int	main(void)
 {
 	printf("STRING\n");
-	int i = -3;
-	int j = 42;
-	printf("j->%-3i", j);
+	int i = 27;
+	printf("j->%x", i);
 
 /*
 	char	spec;

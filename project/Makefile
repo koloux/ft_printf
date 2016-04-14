@@ -20,9 +20,9 @@ FILES = ft_printf.c spec.c flags.c width.c precision.c length.c error.c convert.
 	ft_strnew.c ft_strchrlen.c ft_strindexof.c ft_strchr.c ft_strdup.c \
 	ft_strjoin.c ft_strcpy.c ft_strcmp.c ft_strsub.c \
 	ft_putwchar.c ft_putwstr.c \
-	ft_putchar.c ft_putnbr.c ft_putstr.c \
+	ft_putchar.c printnbr.c ft_putstr.c \
 	ft_bitgetfour.c ft_bitgetoctal.c \
-	ft_isdigit.c ft_isupper.c ft_power.c \
+	ft_isdigit.c ft_isupper.c ft_power.c ft_itoa_base.c\
 	
 OBJ = $(FILES:.c=.o)
 TMP = Makefile~  $(F_DIR)/header.h~ $(NAME)~ $(FILES:.c=.c~)

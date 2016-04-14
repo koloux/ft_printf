@@ -1,0 +1,10 @@
+opt tab :
+0 : flags
+1 : width
+2 : precision
+3 : length
+4 : spec
+5 : nb char 2 print
+6 : NULL
+
+int totalfinal : globale variable of total char printed

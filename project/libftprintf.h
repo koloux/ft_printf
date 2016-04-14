@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 16:52:31 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/14 14:20:50 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ void	ft_putwstr(wchar_t *ws);
 
 void	ft_putchar(char c);
 void	ft_putstr(char const *str);
-void	ft_putnbr(int n);
+
+void	ft_putnbr(long long int n);
+void	printnbr(char **opt, long long int ret);
 
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
@@ -68,4 +70,6 @@ int		ft_bitgetfour(int i, unsigned int index);
 int		ft_isdigit(int c);
 int		ft_isupper(int c);
 int		ft_power(int n, int pow);
+size_t	nblen(long long int value, int base);
+char	*ft_itoa_base(long long int value, int base);
 # endif

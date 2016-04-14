@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strany.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 14:19:07 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/06 16:52:21 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/14 10:40:37 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/14 10:43:40 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr(int n)
+int	ft_strany(const char *str, const char *any)
 {
-	if (n == -2147483648)
+	int i;
+	int j;
+
+	i = 0;
+	while (str[i])
 	{
-		ft_putstr("-2147483648");
-		return ;
+		j = 0;
+		while (any[j])
+		{
+			if (str[i] == any[j])
+				return (1);
+			j++;
+		}
+		i++;
 	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	else
-		ft_putchar(n + '0');
+	return (0);
 }
