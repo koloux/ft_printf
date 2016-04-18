@@ -11,3 +11,8 @@ Writing functions with unfixed number of arguments.
 
 #Convention
 + [42 Norme](./subject/norme.pdf).<br />
+
+#My own info
+- conclusion on tags combinaison : [info](./test/info.txt)
+- [logic](./test/logic.txt)
+- understanding my [printf](./test/description.txt)

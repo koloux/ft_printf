@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/14 14:20:50 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/18 14:21:29 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <wchar.h>
 # include <locale.h>
+
+int		printret;
 
 #include <stdio.h>
 /*

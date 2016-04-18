@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/14 14:43:26 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/18 14:50:06 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main(void)
 {
-	int d = -27;
+	unsigned int d = 27;
+	char *s = "toi et moi";
 
+	ft_printf("%s", s);
 	ft_printf("%x\n", d);
 	printf("%x", d);
 	/*

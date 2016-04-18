@@ -1,0 +1,10 @@
+Read format
+ - write while no '%'
+ - test char after '%' || exit
+ - fill option[flags, width, .precision, length, spec]
+ - interpret option[] - verify error combination || exit
+ - convert va_arg(ap, type)
+ - calculate length to write and verify || exit
+ - write ptr
+
+-> return number of char written (use either global variable or a int)

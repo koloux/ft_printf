@@ -1,0 +1,22 @@
+"sSpdDioOuxXcC"
+
+d/i : signed decimal
+D   : long decimal
+o   : unsigned octal
+O   : unsigned long octal
+u   : unsigned decimal
+U   : unsigned long
+x   : unsigned hexadecimal
+s   : char string
+S   : wide char string (ls)
+c   : int printed as unsigned char
+C   : wide char (lc)
+p   : pointer (#x | #lx)
+
+	d / i				o u x					c			s
+hh  signed char			unsigned char			x			x
+h   short				unsigned short			x			x
+ll  long long			unsigned long long		x			x
+l   long				unsigned long			wint_t		wchar_t*
+j   intmax_t			uintmax_t				x			x
+z   signed size_t		size_t					x			x

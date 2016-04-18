@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/14 11:35:54 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/18 14:20:53 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int ft_printf(char *fmt, ...)
 	char	**opt;
 	size_t	len;
 
+	printret = 0;
 	if (!(opt = (char **)ft_memalloc(sizeof(char *) * 6)))
 		return (-1);
 	opt[5] = NULL;
