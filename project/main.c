@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/06 13:41:30 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/18 14:50:06 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/30 15:46:03 by nhuber            #+#    #+#             */
+/*   Updated: 2016/05/12 19:37:43 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,17 @@
 
 int	main(void)
 {
-	unsigned int d = 27;
-	char *s = "toi et moi";
-
-	ft_printf("%s", s);
-	ft_printf("%x\n", d);
-	printf("%x", d);
-	/*
-	printf("\n\nTESTING WCHAR\n");
-	char *l = setlocale(LC_ALL, "");
+	char* l = setlocale(LC_ALL, "");
 	if (l == NULL)
-	{
-		printf("error set\n");
-	}
+		printf("locale not set\n");
 	else
-	{
-		printf("------1------\n");
-		wchar_t wc = 945;
-		ft_printf("I am THE : %lc\n", wc);
-		printf("------2------\n");
-		wc = 937;
-		ft_printf("I am THE : %C\n", wc);
-	}
-	*/
-	return (0);
+		printf("set %s\n", l);
+
+	int d;
+	int c;
+
+	d = ft_printf("%#o\n", 0);
+	c = printf("%#o\n", 0);
+	printf("%d<---->%d\n", d, c);
+	return (1);
 }

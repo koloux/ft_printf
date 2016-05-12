@@ -5,63 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/05 17:07:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/18 14:20:53 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/22 10:02:51 by nhuber            #+#    #+#             */
+/*   Updated: 2016/05/12 18:54:26 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printf(char *fmt, ...)
+int		ft_printf(char *fmt, ...)
 {
-	va_list	ap;
-	char	**opt;
-	size_t	len;
+	int		plen[4];
+	char	opt[5];
+	va_list	va;
+	t_char	string;
 
-	printret = 0;
-	if (!(opt = (char **)ft_memalloc(sizeof(char *) * 6)))
-		return (-1);
-	opt[5] = NULL;
-	va_start(ap, fmt);
-	while (*fmt != '\0')
+	va_start(va, fmt);
+	plen[3] = 0;
+	while (*fmt)
 	{
-		len = ft_strchrlen(fmt, '%');
-		write(1, fmt, len);
-		fmt += len;
+		plen[3] += ft_strprintcount(fmt, '%');
+		fmt += ft_strchrlen(fmt, '%');
+		set_params(plen, opt, &string);
 		if (*fmt)
 		{
-			//error percent ?
-			if (*fmt == '%' && (*fmt + 1) == '%')
+			get_tags(&fmt, opt, plen);
+			if (ft_strindexof("sSpdDioOuUxXcC%", opt[4]) != -1)
 			{
 				fmt++;
-				write(1, "%", 1);
+				convert(va, opt, plen, string);
 			}
 			else
-			{
-				if (error_convert(fmt) != 0)
-				{
-					fmt++;
-					flags_get(&fmt, &(opt[0]));
-					width_get(&fmt, &(opt[1]));
-					precision_get(&fmt, &(opt[2]));
-					length_get(&fmt, &(opt[3]));
-					spec_get(&fmt, &(opt[4]));
-					//printf("ALL OPTIONS : |%s|%s|%s|%s|%s|\n", opt[0], opt[1], opt[2], opt[3], opt[4]);
-					if (error_tags(opt) != -1)
-					{
-						//ptr func
-						convert(ap, opt);					
-					}
-					else
-					{
-						printf("ERROR MOFO\n");
-						return (-1);
-					}
-				}
-			}
-			fmt++;
+				set_undefined(opt, plen, -1);
 		}
 	}
-	va_end(ap);
-	return (1);
+	va_end(va);
+	return (plen[3]);
 }

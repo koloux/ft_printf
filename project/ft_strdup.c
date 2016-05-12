@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 16:53:59 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 14:49:21 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/04/23 11:33:01 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s1)
 	char	*s2;
 	int		i;
 
-	if (!(s2 = (char *)malloc(sizeof(char) * (ft_strchrlen(s1, '\0') + 1))))
+	if (!(s2 = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')

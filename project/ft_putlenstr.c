@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bitgetoctal.c                                   :+:      :+:    :+:   */
+/*   ft_putlenstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/12 20:24:49 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/11 16:20:15 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/25 02:08:29 by nhuber            #+#    #+#             */
+/*   Updated: 2016/05/12 11:29:38 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_bitgetoctal(int i, unsigned int index)
+void	ft_putlenstr(char const *s, int len)
 {
-	return (255 &  (i >> index * 8));
+	if (len != -1)
+	{
+		if (!s)
+			ft_putlenstr("(null)", 6);
+		write(1, s, len);
+	}
 }

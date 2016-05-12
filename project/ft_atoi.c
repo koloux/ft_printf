@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 17:08:49 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 15:07:42 by nhuber           ###   ########.fr       */
+/*   Created: 2016/02/24 11:16:59 by nhuber            #+#    #+#             */
+/*   Updated: 2016/04/22 11:21:08 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	unsigned int	i;
+	int				result;
+	int				sign;
 
+	sign = 1;
+	result = 0;
 	i = 0;
-	while (src[i] != '\0')
+	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\r' || str[i] == ' '
+			|| str[i] == '\f' || str[i] == '\v')
+		i++;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
 	{
-		dst[i] = src[i];
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (result * sign);
 }

@@ -6,48 +6,34 @@
 /*   By: nhuber <nhuber@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 15:29:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 17:07:19 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/12 19:13:01 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		error_convert(char *fmt)
+void	error_tags(char *opt)
 {
-	int		flag;
-	char	*spec;
-	int		i;
-
-	flag = 0;
-	spec = "sSpdDioOuUxXcC";
-	while (*fmt && flag == 0)
-	{
-		i = 0;
-		while (spec[i])
-		{
-			if (*fmt == spec[i++])
-				flag++;
-		}
-		fmt++;
-	}
-	return (flag);
+	if (ft_strindexof("uU", opt[4]) != -1 && opt[2])
+		opt[2] = 0;
+	if (opt[2] && opt[4] == 'p')
+		opt[2] = 0;
 }
 
-int		error_tags(char **opt)
+void	error_duplicate(char **fmt, char *opt, int *plen)
 {
-	int	(*tag[2])(char **);
-	int i;
-
-	if (opt[4] == NULL)
-		return (-1);
-	tag[0] = &flags_error;
-	tag[1] = &length_error;
-	i = 0;
-	while (i < 2)
+	while (ft_strindexof(".#0+ ", *(*fmt)) != -1)
 	{
-		if (tag[i](opt) == -1)
-			return (-1);
-		i++;
+		if (!opt[0] || !opt[1] || !opt[2])
+			get_flags(fmt, opt);
+		else if (**fmt == '+')
+		{
+			opt[2] = '+';
+			(*fmt)++;
+		}
+		else
+			(*fmt)++;
 	}
-	return (0);
+	if (opt[0] == '#' && opt[1] == '-' && opt[2] == '+')
+		plen[1] = 0;
 }

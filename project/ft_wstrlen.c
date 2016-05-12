@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width.c                                            :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/09 11:52:07 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 11:45:48 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/22 15:46:40 by nhuber            #+#    #+#             */
+/*   Updated: 2016/05/11 14:46:56 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	width_get(char **fmt, char **opt)
+int	ft_wstrlen(wchar_t *ws, int max)
 {
-	size_t	i;
-	size_t	n;
+	int	i;
+	int	len;
 
 	i = 0;
-	ft_memdel((void*)&(*opt));
-	while (ft_isdigit((fmt[0][i])))
-		i++;
-	if (i > 0)
+	len = 0;
+	if (max == -1)
+		max = 2147483647;
+	while (ws[i])
 	{
-		*opt = ft_strsub(*(fmt), 0, i);
-		n = 0;
-		while (n++ < i)
-			(*fmt)++;
+		if (len + 1 <= max && ws[i] <= 0x7F)
+			len += 1;
+		else if (len + 2 <= max && ws[i] <= 0x7FF)
+			len += 2;
+		else if (len + 3 <= max && ws[i] <= 0xFFFF)
+			len += 3;
+		else if (len + 4 <= max)
+			len += 4;
+		i++;
 	}
+	return (len);
 }

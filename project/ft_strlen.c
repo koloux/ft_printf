@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/23 19:14:50 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/07 14:48:22 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/22 15:59:45 by nhuber            #+#    #+#             */
+/*   Updated: 2016/05/11 19:44:49 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strlen(char const *str)
 {
-	while (*s != (char)c && *s)
-		s++;
-	if (*s == (char)c)
-		return ((char *)s);
-	return (NULL);
+	int	len;
+
+	len = 0;
+	if (str == NULL)
+		return (1);
+	while (str[len])
+		len++;
+	return (len);
 }

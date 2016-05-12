@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spec.c                                             :+:      :+:    :+:   */
+/*   ft_putnchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/06 13:19:21 by nhuber            #+#    #+#             */
-/*   Updated: 2016/04/13 09:41:13 by nhuber           ###   ########.fr       */
+/*   Created: 2016/04/22 09:04:56 by nhuber            #+#    #+#             */
+/*   Updated: 2016/05/02 11:13:35 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	spec_get(char **fmt, char **opt)
+void	ft_putnchar(char c, int n)
 {
-	char	*cpy;
-	char	*def;
-	int		flag;
-
-	flag = 0;
-	def = "sSpdDioOuUxXcC";
-	while (*def && flag == 0)
-	{
-		if (*(*fmt) == *def)
-			flag++;
-		def++;
-	}
-	if (flag > 0)
-	{
-		cpy = ft_strnew(1);
-		cpy[0] = *(*fmt);
-		*opt = cpy;
-	}
+	while (n-- > 0)
+		write(1, &c, 1);
 }
