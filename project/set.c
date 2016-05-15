@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:52:28 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/12 12:11:50 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/15 17:23:50 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	set_undefined(char *opt, int *plen, int total)
 	if ((opt[4] == 'c' || opt[4] == 's') && !plen[1])
 		plen[1] = -1;
 	i = plen[0] - ((total < 0) ? 1 : total);
-	if (opt[1] == '0' && plen[1] == -1)
+	if (opt[1] == '0')
 		ft_putnchar('0', i);
 	else if ((opt[2] == ' ' || (!opt[2])) && !opt[1])
 		ft_putnchar(' ', i);

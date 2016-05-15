@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 15:46:03 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/12 19:37:43 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/15 18:58:41 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+
 	char* l = setlocale(LC_ALL, "");
 	if (l == NULL)
 		printf("locale not set\n");
@@ -23,8 +24,17 @@ int	main(void)
 	int d;
 	int c;
 
-	d = ft_printf("%#o\n", 0);
-	c = printf("%#o\n", 0);
+	d = ft_printf("{%#.3o}\n", 1);
+	c = printf("{%#.3o}\n", 1);
 	printf("%d<---->%d\n", d, c);
+/*
+	d = ft_printf("{%05.Z}\n", 0);
+	c = printf("{%05.Z}\n", 0);
+	printf("%d<---->%d\n", d, c);
+
+	d = ft_printf("{%-15Z}\n", 0);
+	c = printf("{%-15Z}\n", 0);
+	printf("%d<---->%d\n", d, c);
+*/
 	return (1);
 }

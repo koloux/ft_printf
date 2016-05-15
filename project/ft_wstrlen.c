@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 15:46:40 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/11 14:46:56 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/15 16:58:47 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_wstrlen(wchar_t *ws, int max)
 	int	i;
 	int	len;
 
+	if (!ws)
+		return (-1);
 	i = 0;
 	len = 0;
 	if (max == -1)

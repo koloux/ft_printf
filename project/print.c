@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 15:30:04 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/12 19:39:42 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/15 18:58:38 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,23 @@ void	print_str(char *opt, int *plen, t_char string)
 	int	total;
 
 	total = get_maxstrlen(string, opt, plen);
-	if (opt[4] == 's' && !plen[0] && !opt[3] && string.str == NULL)
+	if (opt[4] == 's' && plen[1] && !opt[3] && string.str == NULL)
 		total = 6;
 	set_undefined(opt, plen, total);
 	if (opt[4] == 's' && !opt[3])
-	{
-		if (plen[0] && string.str == NULL)
-			total = -1;
-		ft_putlenstr(string.str, total);
-	}
+		total == 0 ? ft_putlenstr(NULL, -1) : ft_putlenstr(string.str, total);
 	else if (opt[4] == 'c' && !opt[3])
 		ft_putchar(string.c);
 	else if (opt[4] == 'S' || (opt[3] == 'l' && opt[4] == 's'))
-		ft_putwstr(string.wstr, total);
+	{
+		if (total == -1)
+		{
+			ft_putlenstr("(null)", 6);
+			total = 6;
+		}
+		else
+			ft_putwstr(string.wstr, total);
+	}
 	else
 		ft_putwchar(string.wchar);
 	plen[3] += total > plen[0] ? total : plen[0];
@@ -43,6 +47,8 @@ void	print_nbr(char *opt, int *plen, long long int nbr)
 
 	if (!nbr && opt[4] != 'o' && opt[4] != 'O')
 		opt[0] = 0;
+	if (!nbr && opt[4] == 'o' && opt[0] == '#')
+		plen[1] = 0;
 	max = get_maxnbrlen(nbr, opt, plen);
 	plen[3] += BIGGER(max, BIGGER(plen[0], plen[1]));
 	print_opt(opt, plen, max, nbr);
@@ -69,7 +75,7 @@ void	print_opt(char *opt, int *plen, int max, long long int nbr)
 		write(1, "0", 1);
 	if (opt[1] == '0' && plen[1] == -1)
 		ft_putnchar('0', plen[0] - max);
-	if (plen[1] > 0)	
+	if (plen[1] > 0)
 		ft_putnchar('0', plen[1] - nblen(nbr, plen[2]));
 }
 
