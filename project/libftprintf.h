@@ -6,13 +6,14 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 11:16:16 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 14:00:20 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 # include <stdlib.h>
+# include <limits.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <wchar.h>
@@ -68,7 +69,7 @@ int					ft_bitgetoctal(int i, unsigned int index);
 int					ft_bitgetfour(int i, unsigned int index);
 int					ft_power(int n, int pow);
 void				set_params(int *plen, char *opt, t_char *string);
-void				set_undefined(char *opt, int *plen, int total);
+void				set_undefined(char **fmt, char *opt, int *plen, int total, int flag);
 void				error_tags(char *opt);
 void				get_precision(char **fmt, int *plen);
 void				error_duplicate(char **fmt, char *opt, int *plen);

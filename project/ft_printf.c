@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 10:02:51 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 12:04:02 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 13:44:50 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int		ft_printf(char *fmt, ...)
 				convert(va, opt, plen, string);
 			}
 			else
-				set_undefined(opt, plen, -1);
+				set_undefined(&fmt ,opt, plen, -1, 1);
 		}
 	}
 	va_end(va);
 	return (plen[3]);
-	}
+}

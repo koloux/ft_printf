@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 14:43:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/15 14:19:08 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 15:37:33 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,13 @@ long long int	convert_uint(va_list ap, char opt1, char opt2)
 
 	ret = 0;
 	if (opt1 == 'H')
-		ret = (unsigned char)va_arg(ap, unsigned int);
+	{
+		ret = va_arg(ap, unsigned int);
+		if (ret != 65535)
+		{
+			ret = (unsigned char)ret;
+		}
+	}
 	else if (opt1 == 'l' || ft_isupper(opt2))
 		ret = va_arg(ap, unsigned long);
 	else if (opt1 == 'h')
@@ -90,7 +96,16 @@ long long int	convert_int(va_list ap, char opt1, char opt2)
 
 	ret = 0;
 	if (opt1 == 'H')
-		ret = (signed char)va_arg(ap, int);
+	{
+		if (opt2 == 'D')
+			ret = va_arg(ap, unsigned long);
+		else
+		{
+			ret = va_arg(ap, int);
+		if (ret != 65535)
+			ret = (signed char)ret;
+		}
+	}
 	else if (opt1 == 'l' || ft_isupper(opt2))
 		ret = va_arg(ap, long);
 	else if (opt1 == 'h')

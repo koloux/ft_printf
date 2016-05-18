@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 15:30:04 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 12:01:46 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 15:37:36 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_str(char *opt, int *plen, t_char string)
 	total = get_maxstrlen(string, opt, plen);
 	if (opt[4] == 's' && plen[1] && !opt[3] && string.str == NULL)
 		total = 6;
-	set_undefined(opt, plen, total);
+	set_undefined(NULL, opt, plen, total, 0);
 	if (opt[4] == 's' && !opt[3])
 		total == 0 ? ft_putlenstr(NULL, -1) : ft_putlenstr(string.str, total);
 	else if (opt[4] == 'c' && !opt[3])
