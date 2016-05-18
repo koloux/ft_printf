@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 15:30:04 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/15 18:58:38 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 12:01:46 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	print_nbr(char *opt, int *plen, long long int nbr)
 
 	if (!nbr && opt[4] != 'o' && opt[4] != 'O')
 		opt[0] = 0;
-	if (!nbr && opt[4] == 'o' && opt[0] == '#')
+	if (!nbr && plen[1] == -1 && opt[4] == 'o' && opt[0] == '#')
 		plen[1] = 0;
 	max = get_maxnbrlen(nbr, opt, plen);
 	plen[3] += BIGGER(max, BIGGER(plen[0], plen[1]));
@@ -72,9 +72,12 @@ void	print_opt(char *opt, int *plen, int max, long long int nbr)
 				&& (opt[4] == 'X' || opt[4] == 'x')) || opt[4] == 'p')
 		opt[4] == 'X' ? write(1, "0X", 2) : write(1, "0x", 2);
 	if (opt[0] == '#' && (opt[4] == 'o' || opt[4] == 'O'))
+	{
 		write(1, "0", 1);
+		plen[1] -= plen[1] > 0 ? 1 : 0;
+	}
 	if (opt[1] == '0' && plen[1] == -1)
-		ft_putnchar('0', plen[0] - max);
+			ft_putnchar('0', plen[0] - max);
 	if (plen[1] > 0)
 		ft_putnchar('0', plen[1] - nblen(nbr, plen[2]));
 }

@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 15:23:56 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/15 10:59:48 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 11:16:16 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void				set_undefined(char *opt, int *plen, int total);
 void				error_tags(char *opt);
 void				get_precision(char **fmt, int *plen);
 void				error_duplicate(char **fmt, char *opt, int *plen);
+void				set_base(char *opt, int *plen);
 
 # include <stdio.h>
 #endif

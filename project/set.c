@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:52:28 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/15 17:23:50 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 12:03:58 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,18 @@ void	set_undefined(char *opt, int *plen, int total)
 		ft_putnchar(' ', i);
 	if (plen[0] != 0 && total < 0)
 		plen[3] += plen[0] + total;
+}
+
+void	set_base(char *opt, int *plen)
+{
+	if (opt[4] == 'x' || opt[4] == 'X' || opt[4] == 'p')
+		plen[2] = 16;
+	else if (opt[4] == 'o' || opt[4] == 'O')
+		plen[2] = 8;
+	else
+		plen[2] = 10;
+	if (opt[4] == '%')
+		plen[1] = -1;
 }
 
 void	set_color(char *fmt, int *plen)

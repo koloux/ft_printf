@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 15:46:03 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/15 18:58:41 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 12:04:04 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int	main(void)
 	int d;
 	int c;
 
-	d = ft_printf("{%#.3o}\n", 1);
-	c = printf("{%#.3o}\n", 1);
+	d = ft_printf("{%-15Z}\n", 123);
+	c = printf("{%-15Z}\n", 123);
 	printf("%d<---->%d\n", d, c);
+	
 /*
 	d = ft_printf("{%05.Z}\n", 0);
 	c = printf("{%05.Z}\n", 0);

@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 13:29:46 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/15 18:58:15 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/18 11:55:28 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,14 @@ int		get_maxnbrlen(long long int nbr, char *opt, int *plen)
 	int		len;
 
 	len = (nbr < 0) ? 1 : 0;
-	if (opt[4] == 'x' || opt[4] == 'X' || opt[4] == 'p')
-		plen[2] = 16;
-	else if (opt[4] == 'o' || opt[4] == 'O')
-		plen[2] = 8;
-	else
-		plen[2] = 10;
-	if (opt[4] == '%')
-		plen[1] = -1;
+	set_base(opt, plen);
 	if (ft_strindexof("dDi", opt[4]) != -1)
 		len += nblen(nbr, plen[2]);
 	else
 		len = unblen((unsigned long long)nbr, plen[2]);
 	max = (len > plen[1]) ? len : plen[1];
+	if (max == plen[1] && !plen[0] && (opt[4] == 'o' || opt[4] == 'O'))
+		max--;
 	if ((opt[0] == '#' && (opt[4] == 'o' || opt[4] == 'O')) ||
 			(opt[2] && opt[4] != '%'))
 		max++;
