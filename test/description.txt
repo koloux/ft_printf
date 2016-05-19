@@ -1,10 +1,13 @@
-opt tab :
-0 : flags
-1 : width
-2 : precision
-3 : length
-4 : spec
-5 : nb char 2 print
-6 : NULL
+PLEN	:
+- [0] : width
+- [1] :	precision
+- [2] :	base
+- [3] :	total char printed
 
-int totalfinal : globale variable of total char printed
+OPT		:
+- [0][1][2] : flags	|#|0-| +|
+- [3]		: length
+- [4]		: specifier
+
+STRING	:
+- structure for char converting

@@ -1,3 +1,5 @@
+AFTER a '%' the printf function parses until it has found a char that does not satisfy any of the flags/width/precision/length characteristics.
+
 "sSpdDioOuxXcC"
 
 d/i : signed decimal
@@ -14,9 +16,9 @@ C   : wide char (lc)
 p   : pointer (#x | #lx)
 
 	d / i				o u x					c			s
-hh  signed char			unsigned char			x			x
-h   short				unsigned short			x			x
-ll  long long			unsigned long long		x			x
-l   long				unsigned long			wint_t		wchar_t*
-j   intmax_t			uintmax_t				x			x
-z   signed size_t		size_t					x			x
+hh	signed char			unsigned char			x			x
+h	short				unsigned short			x			x
+ll	long long			unsigned long long		x			x
+l	long				unsigned long			wint_t		wchar_t*
+j	intmax_t			uintmax_t				x			x
+z	signed size_t		size_t					x			x

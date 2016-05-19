@@ -1,6 +1,5 @@
 Read format
  - write while no '%'
- - test char after '%' || exit
  - fill option[flags, width, .precision, length, spec]
  - interpret option[] - verify error combination || exit
  - convert va_arg(ap, type)
@@ -8,3 +7,17 @@ Read format
  - write ptr
 
 -> return number of char written (use either global variable or a int)
+
+
+BETTER SOLUTION :
+- build a structure
+	. type of the different variable to convert
+	. structure for all options
+	. ptr on function to write the variable
+	. char length of the variable
+
+RINSE AND REPEAT :
+----------------
+- put fmt in Linked List while no '%'
+- put in LL options/convert/calculate length
+- print your LL

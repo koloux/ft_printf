@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/23 13:52:28 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 14:00:05 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:33:11 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	set_params(int *plen, char *opt, t_char *string)
 	(*string).str = 0;
 }
 
-void	set_undefined(char **fmt, char *opt, int *plen, int total, int flag)
+void	set_undefined(char **fmt, char *opt, int *plen, int total)
 {
 	int	i;
 
@@ -42,8 +42,8 @@ void	set_undefined(char **fmt, char *opt, int *plen, int total, int flag)
 	else if ((opt[2] == ' ' || (!opt[2])) && !opt[1])
 		ft_putnchar(' ', i);
 	if (plen[0] != 0 && total < 0)
-		plen[3] += plen[0] + total;
-	if (flag == 1)
+		plen[3] += plen[0] + (total == -7 ? -1 : total);
+	if (total == -7)
 	{
 		if (opt[4])
 		{
@@ -66,10 +66,4 @@ void	set_base(char *opt, int *plen)
 		plen[2] = 10;
 	if (opt[4] == '%')
 		plen[1] = -1;
-}
-
-void	set_color(char *fmt, int *plen)
-{
-	(void)fmt;
-	(void)plen;
 }

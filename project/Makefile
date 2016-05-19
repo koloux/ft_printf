@@ -48,6 +48,10 @@ test :
 	@echo "\t\tTESTING\n-----------------------------"
 	@$(CC) -o ze_printf $(FILES) main.c -I $(HEADER) && ./ze_printf
 
+norme :
+	@echo "\t\tNORME ERROR\n\tif no error nothing will appear\n----------------------------------------------"
+	@norminette > ../test/checking && cat ../test/checking | grep -B1 "Error"
+
 re : fclean all
 
 .PHONY : all clean fclean re

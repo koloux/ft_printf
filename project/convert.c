@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 14:43:34 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 15:37:33 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/19 11:29:37 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ long long int	convert_int(va_list ap, char opt1, char opt2)
 		else
 		{
 			ret = va_arg(ap, int);
-		if (ret != 65535)
-			ret = (signed char)ret;
+			if (ret != 65535)
+				ret = (signed char)ret;
 		}
 	}
 	else if (opt1 == 'l' || ft_isupper(opt2))

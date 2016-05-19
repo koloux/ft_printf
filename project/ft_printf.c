@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 10:02:51 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 13:44:50 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/19 12:45:11 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ int		ft_printf(char *fmt, ...)
 	plen[3] = 0;
 	while (*fmt)
 	{
-		plen[3] += ft_strprintcount(fmt, '%');
-		fmt += ft_strchrlen(fmt, '%');
-		set_params(plen, opt, &string);
+		ft_printf_init(&fmt, opt, plen, &string);
 		if (*fmt)
 		{
 			get_tags(&fmt, opt, plen);
@@ -35,9 +33,16 @@ int		ft_printf(char *fmt, ...)
 				convert(va, opt, plen, string);
 			}
 			else
-				set_undefined(&fmt ,opt, plen, -1, 1);
+				set_undefined(&fmt, opt, plen, -7);
 		}
 	}
 	va_end(va);
 	return (plen[3]);
+}
+
+void	ft_printf_init(char **fmt, char *opt, int *plen, t_char *string)
+{
+	plen[3] += ft_strprintcount(*fmt, '%');
+	(*fmt) += ft_strchrlen(*fmt, '%');
+	set_params(plen, opt, string);
 }

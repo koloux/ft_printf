@@ -6,7 +6,7 @@
 /*   By: nhuber <nhuber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 15:30:04 by nhuber            #+#    #+#             */
-/*   Updated: 2016/05/18 15:37:36 by nhuber           ###   ########.fr       */
+/*   Updated: 2016/05/19 11:36:04 by nhuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_str(char *opt, int *plen, t_char string)
 	total = get_maxstrlen(string, opt, plen);
 	if (opt[4] == 's' && plen[1] && !opt[3] && string.str == NULL)
 		total = 6;
-	set_undefined(NULL, opt, plen, total, 0);
+	set_undefined(NULL, opt, plen, total);
 	if (opt[4] == 's' && !opt[3])
 		total == 0 ? ft_putlenstr(NULL, -1) : ft_putlenstr(string.str, total);
 	else if (opt[4] == 'c' && !opt[3])
@@ -77,7 +77,7 @@ void	print_opt(char *opt, int *plen, int max, long long int nbr)
 		plen[1] -= plen[1] > 0 ? 1 : 0;
 	}
 	if (opt[1] == '0' && plen[1] == -1)
-			ft_putnchar('0', plen[0] - max);
+		ft_putnchar('0', plen[0] - max);
 	if (plen[1] > 0)
 		ft_putnchar('0', plen[1] - nblen(nbr, plen[2]));
 }
